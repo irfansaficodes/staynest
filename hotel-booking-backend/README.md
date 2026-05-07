@@ -1,5 +1,7 @@
 # StayNest - Backend API
 
+**Live**: [https://staynest-backend-nqv9.onrender.com](https://staynest-backend-nqv9.onrender.com)
+
 Express.js + TypeScript + MongoDB backend for the StayNest hotel booking platform.
 
 ## Tech Stack

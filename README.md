@@ -1,5 +1,8 @@
 # StayNest - Hotel Booking Management System
 
+**Live**: [https://staynest-plum.vercel.app](https://staynest-plum.vercel.app)  
+**Backend API**: [https://staynest-backend-nqv9.onrender.com](https://staynest-backend-nqv9.onrender.com)
+
 A full-stack hotel booking platform built with the MERN stack (MongoDB, Express.js, React, Node.js) featuring razorpay payment integration, email verification, and admin dashboard.
 
 ![MERN](https://img.shields.io/badge/MERN-Stack-blue?style=for-the-badge&logo=mongodb&logoColor=white)
