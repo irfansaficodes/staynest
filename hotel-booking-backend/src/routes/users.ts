@@ -81,23 +81,9 @@ router.post(
       user.emailVerificationCodeExpires = new Date(Date.now() + 10 * 60 * 1000);
       await user.save();
 
+      console.log(`[DEV] OTP for ${user.email}: ${code}`);
       sendVerificationEmail(user.email, code).catch(() => {});
 
-      const token = jwt.sign(
-        { userId: user.id },
-        process.env.JWT_SECRET_KEY as string,
-        {
-          expiresIn: "1d",
-        }
-      );
-
-      res.cookie("session_id", token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-        maxAge: 86400000,
-        path: "/",
-      });
       return res.status(200).send({ message: "User registered OK", userId: user._id });
     } catch (error) {
       console.error("User registration error:", error);
