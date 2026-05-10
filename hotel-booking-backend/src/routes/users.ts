@@ -86,7 +86,7 @@ router.post(
         console.error("Email send failed:", err?.message || err);
       });
 
-      return res.status(200).send({ message: "User registered OK", userId: user._id, devCode: code });
+      return res.status(200).send({ message: "User registered OK", userId: user._id });
     } catch (error) {
       console.error("User registration error:", error);
       res.status(500).send({ message: "Something went wrong" });
