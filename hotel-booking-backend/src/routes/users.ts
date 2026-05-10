@@ -82,9 +82,11 @@ router.post(
       await user.save();
 
       console.log(`[DEV] OTP for ${user.email}: ${code}`);
-      sendVerificationEmail(user.email, code).catch(() => {});
+      sendVerificationEmail(user.email, code).catch((err: any) => {
+        console.error("Email send failed:", err?.message || err);
+      });
 
-      return res.status(200).send({ message: "User registered OK", userId: user._id });
+      return res.status(200).send({ message: "User registered OK", userId: user._id, devCode: code });
     } catch (error) {
       console.error("User registration error:", error);
       res.status(500).send({ message: "Something went wrong" });

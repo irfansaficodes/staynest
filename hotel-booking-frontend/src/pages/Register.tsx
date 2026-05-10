@@ -57,9 +57,10 @@ const Register = () => {
       if (userId) {
         localStorage.setItem("user_id", userId);
       }
+      const otpMsg = data?.devCode ? ` Your code is: ${data.devCode}` : "";
       showToast({ 
         title: "Registration Successful", 
-        description: "A 6-digit verification code has been sent to your email.",
+        description: `A verification code has been sent to your email.${otpMsg}`,
         type: "SUCCESS" 
       });
       setTimeout(() => {
